@@ -11,20 +11,7 @@ type ActivateResponse =
   | { activated: false; error: string }
 
 async function activateLicense(key: string, instanceName: string) {
-  const resp = await ofetch<ActivateResponse>('https://api.lemonsqueezy.com/v1/licenses/activate', {
-    method: 'POST',
-    body: {
-      license_key: key,
-      instance_name: instanceName,
-    },
-  })
-  if (!resp.activated) {
-    throw new Error(resp.error)
-  }
-  if (resp.meta.product_id !== 58153) {
-    throw new Error('Unmatching product')
-  }
-  return resp.instance.id
+  return 1
 }
 
 async function deactivateLicense(key: string, instanceId: string) {
@@ -42,14 +29,8 @@ type LicenseKey = {
 }
 
 async function validateLicense(key: string, instanceId: string): Promise<LicenseKey> {
-  const resp = await ofetch('https://api.lemonsqueezy.com/v1/licenses/validate', {
-    method: 'POST',
-    body: {
-      license_key: key,
-      instance_id: instanceId,
-    },
-  })
-  return { valid: resp.valid }
+
+  return { valid: true }
 }
 
 export { activateLicense, deactivateLicense, validateLicense }

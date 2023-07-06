@@ -9,7 +9,7 @@ export async function validateLicenseKey(key: string) {
   let instanceId = localStorage.getItem(`license_instance_id:${key}`)
   if (!instanceId) {
     instanceId = await activateLicense(key, getInstanceName())
-    localStorage.setItem(`license_instance_id:${key}`, instanceId)
+    localStorage.setItem(`license_instance_id:${key}`, 1)
   }
   return validateLicense(key, instanceId)
 }

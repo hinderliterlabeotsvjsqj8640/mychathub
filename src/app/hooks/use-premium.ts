@@ -11,7 +11,7 @@ export function usePremium() {
     `license:${licenseKey}`,
     async () => {
       if (!licenseKey) {
-        return { valid: false }
+        return { valid: true }
       }
       return validateLicenseKey(licenseKey)
     },
