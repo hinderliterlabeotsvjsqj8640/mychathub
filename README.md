@@ -202,3 +202,11 @@ English &nbsp;&nbsp;|&nbsp;&nbsp; [Indonesia](README_IN.md) &nbsp;&nbsp;|&nbsp;&
 
 - Support copy message text
 - Improve setting page form element style
+
+
+
+
+edge浏览器扩展保存目录为 C:\Users\Administrator\AppData\Local\Microsoft\Edge\User Data\Default\Extensions
+
+找到文件 ChatMessageList-********.js    搜索关键词 /activate 将这一段删除![这一段删除](image.png) 修改return为1   
+接着搜素关键词 /validate  将这一段改为true ![改为true  ](image-1.png)
